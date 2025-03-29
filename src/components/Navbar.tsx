@@ -1,7 +1,9 @@
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X, Leaf, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { api } from "@/api/client";
+import { toast } from "@/hooks/use-toast";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +21,24 @@ const Navbar: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogin = () => {
+    // Redirect to your backend login route
+    window.location.href = "http://localhost:5000/auth/login";
+    toast({
+      title: "Redirecting to login",
+      description: "You are being redirected to the login page",
+    });
+  };
+
+  const handleSignup = () => {
+    // Redirect to your backend signup route
+    window.location.href = "http://localhost:5000/auth/signup";
+    toast({
+      title: "Redirecting to signup",
+      description: "You are being redirected to the signup page",
+    });
+  };
 
   return (
     <nav
@@ -67,10 +87,19 @@ const Navbar: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-leaf text-leaf hover:bg-leaf hover:text-white">
+            <Button 
+              variant="outline" 
+              className="border-leaf text-leaf hover:bg-leaf hover:text-white flex items-center gap-2"
+              onClick={handleLogin}
+            >
+              <LogIn className="h-4 w-4" />
               Login
             </Button>
-            <Button className="bg-leaf hover:bg-leaf-dark text-white">
+            <Button 
+              className="bg-leaf hover:bg-leaf-dark text-white flex items-center gap-2"
+              onClick={handleSignup}
+            >
+              <UserPlus className="h-4 w-4" />
               Sign Up
             </Button>
           </div>
@@ -121,10 +150,19 @@ const Navbar: React.FC = () => {
                 Contact
               </a>
               <div className="flex flex-col space-y-2 pt-2">
-                <Button variant="outline" className="border-leaf text-leaf hover:bg-leaf hover:text-white w-full">
+                <Button 
+                  variant="outline" 
+                  className="border-leaf text-leaf hover:bg-leaf hover:text-white w-full flex items-center justify-center gap-2"
+                  onClick={handleLogin}
+                >
+                  <LogIn className="h-4 w-4" />
                   Login
                 </Button>
-                <Button className="bg-leaf hover:bg-leaf-dark text-white w-full">
+                <Button 
+                  className="bg-leaf hover:bg-leaf-dark text-white w-full flex items-center justify-center gap-2"
+                  onClick={handleSignup}
+                >
+                  <UserPlus className="h-4 w-4" />
                   Sign Up
                 </Button>
               </div>
