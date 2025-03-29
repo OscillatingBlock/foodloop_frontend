@@ -32,17 +32,24 @@ export const fetchFromAPI = async <T>(
 };
 
 /**
- * Example API functions for specific endpoints
+ * API functions for specific endpoints
  */
 export const api = {
-  // Example function to get data from the backend
-  getData: () => fetchFromAPI<any>('/api/data'),
+  // Get dashboard statistics
+  getStats: () => fetchFromAPI<any>('/api/stats'),
   
-  // Example function to send data to the backend
-  sendData: (data: any) => fetchFromAPI<any>('/api/data', {
+  // Get available food items
+  getFoodItems: () => fetchFromAPI<any>('/api/food-items'),
+  
+  // Submit a new food donation
+  submitDonation: (data: any) => fetchFromAPI<any>('/api/donations', {
     method: 'POST',
     body: JSON.stringify(data),
   }),
   
-  // Add more API functions as needed for your application
+  // Get list of organizations
+  getOrganizations: () => fetchFromAPI<any>('/api/organizations'),
+  
+  // Generic data endpoint (for testing)
+  getData: () => fetchFromAPI<any>('/api/data'),
 };
