@@ -139,7 +139,7 @@ const ApiExample = () => {
         <div className="text-sm text-muted-foreground bg-gray-50 p-4 rounded-md">
           <p className="font-semibold mb-2">Implementation Tips:</p>
           <ol className="list-decimal pl-5 space-y-1">
-            <li>Ensure your Flask backend is running at {process.env.REACT_APP_API_URL || 'http://localhost:5000'}</li>
+            <li>Ensure your Flask backend is running at http://localhost:5000</li>
             <li>Set up CORS in Flask: <code>from flask_cors import CORS; CORS(app)</code></li>
             <li>Create endpoints that match the API client functions</li>
             <li>Return properly formatted JSON responses</li>
