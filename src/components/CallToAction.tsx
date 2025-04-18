@@ -42,9 +42,6 @@ const CallToAction: React.FC = () => {
             <Button size="lg" className="bg-white text-leaf-dark hover:bg-yellow-50">
               Sign Up Now
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/20">
-              Schedule a Demo <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </div>
         </div>
       </div>
